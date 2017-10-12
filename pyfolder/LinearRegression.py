@@ -1,19 +1,20 @@
 import numpy as np
-import cgi
-
-form = cgi.FieldStorage()
-print (form["X"])
 
 def descent(X, y, w, alpha):
     # Compute f(x)
     f = np.dot(X, w)
 
     # Calculate error function
-    E = 0.5 * np.sum(np.square((y - f)))
+    E = error_function(y, f)
 
     # Compute gradient descent
     w = w - alpha * np.dot(-X.transpose(), (y - f))
     return w
+
+
+def error_function(y, f):
+    E = 0.5 * np.sum(np.square((y - f)))
+    return E
 
 
 def cycle(input_data, output_data, min_delta = 0, max_iteration = 0, alpha=0.05):
@@ -48,10 +49,10 @@ def cycle(input_data, output_data, min_delta = 0, max_iteration = 0, alpha=0.05)
 
 
 # INPUT DATA
-X = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8])
+#X = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8])
 
 # OUTPUT DATA
-y = np.array([4, 7, 10, 13, 16, 19, 22, 25, 28])
+#y = np.array([4, 7, 10, 13, 16, 19, 22, 25, 28])
 
 
 #cycle(X, y, min_delta=0, max_iteration=500, alpha=0.005)
