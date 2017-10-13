@@ -15,7 +15,7 @@ def descent(X, y, w, alpha):
 
 def error_function(y, f):
     E = 0.5 * np.sum(np.square((y - f)))
-    if E < (1/10**11): E = 0
+    if E < (1/10**21): E = 0
     return E
 
 

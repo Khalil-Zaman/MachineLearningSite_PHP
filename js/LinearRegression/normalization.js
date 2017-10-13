@@ -6,6 +6,7 @@ $(document).ready(function(){
     $('#w0').html(0);
     $('#w1').html(0);
     $('#iteration-number').html(0);
+    draw_graph();
   });
 
   $('#run').click(function(){
@@ -61,7 +62,7 @@ function runLR(){
           draw_graph(y0, yn);
       }
   }).done(function(){
-    $('#run').html('Done - Run Again');
+    $('#run').html('Run');
     $('#run').css('background-color', '#1A85FF');
   });
 }

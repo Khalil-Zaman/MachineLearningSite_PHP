@@ -6,9 +6,7 @@
 
 <div class="w3-container">
   <div class="w3-row" style="margin-top:-50px;">
-    <p style="font-size:18px;">This is a simple linear regression model. Type in your inputs (X) and your outputs (Y), then click on run to compute a single iteration (or run constant, to run constantly).<br>
-    If the error function starts to increase, (the line starts deviating away from the points), decrease your learning rate (alpha).<br>
-    Likewise, if the error function is decreasing too slowly, increase your learning rate.</p>
+    <p style="font-size:18px;">This is a simple linear regression model. Type in your inputs (X) and your outputs (Y), then click on run.<br></p>
   </div>
   <div class="w3-row" style="padding-bottom:30px;">
 
@@ -65,7 +63,7 @@
           </div>
           <div class="w3-col l4 m4">
             <div style="padding-right:5px;">
-              <div id="reset" class="w3-btn" style="width:100%; background-color:#1A85FF">Reset</div>
+              <div id="reset" class="w3-btn w3-red" style="width:100%;">Reset</div>
             </div>
           </div>
         </div>

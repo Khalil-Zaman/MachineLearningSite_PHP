@@ -6,7 +6,7 @@
 
 <div class="w3-container">
   <div class="w3-row" style="margin-top:-50px;">
-    <p style="font-size:18px;">This is a simple linear regression model. Type in your inputs (X) and your outputs (Y), then click on run to compute a single iteration (or run constant, to run constantly).<br>
+    <p style="font-size:18px;">This is a simple linear regression model. Type in your inputs (X) and your outputs (Y), then click on run to compute a single iteration.<br>
     If the error function starts to increase, (the line starts deviating away from the points), decrease your learning rate (alpha).<br>
     Likewise, if the error function is decreasing too slowly, increase your learning rate.</p>
   </div>
@@ -76,14 +76,20 @@
         </div>
 
         <div class="w3-row w3-padding">
-          <div class="w3-col l2 m4">
-              <div id="run" class="w3-btn w3-purple">Run</div>
+          <div class="w3-col l4 m4">
+            <div style="padding-right:5px;">
+              <div id="run" class="w3-btn" style="width:100%; background-color:#1A85FF">Run 1 iteration</div>
+            </div>
           </div>
-          <div class="w3-col l3 m5">
-              <div id="run-constant" class="w3-btn w3-purple">Run Constant</div>
+          <div class="w3-col l4 m4">
+            <div style="padding-right:5px;">
+              <div id="run-constant" class="w3-btn" style="width:100%; background-color:#1A85FF">Run continuously</div>
+            </div>
           </div>
-          <div class="w3-col l3 m5">
-              <div id="reset" class="w3-btn w3-purple">Reset</div>
+          <div class="w3-col l4 m4">
+            <div style="padding-right:5px;">
+              <div id="reset" class="w3-btn w3-red" style="width:100%;">Reset</div>
+            </div>
           </div>
         </div>
 

@@ -4,20 +4,19 @@ $(document).ready(function(){
   var it;
   $('#run-constant').click(function(){
       if (checkXY()) {
-        if($(this).html() != "Stop"){
+        if($(this).html() != "Pause"){
           it = setInterval(function () {
               runLR();
           },1000);
-          $(this).html("Stop");
-          $(this).removeClass("w3-purple");
+          $(this).html("Pause");
           $(this).addClass("w3-red");
           $('#X-values').attr('disabled', true);
           $('#Y-values').attr('disabled', true);
         } else {
           clearInterval(it);
-          $(this).html("Run Constant");
+          $(this).html("Continue");
           $(this).removeClass("w3-red");
-          $(this).addClass("w3-purple");
+          $(this).addClass("w3-green");
           $('#X-values').attr('disabled', false);
           $('#Y-values').attr('disabled', false);
         }
@@ -29,10 +28,16 @@ $(document).ready(function(){
     $('#w0').html(0);
     $('#w1').html(0);
     $('#iteration-number').html(0);
+    $('#run-constant').removeClass("w3-red").removeClass("w3-green");
+    $('#run-constant').html("Run continuously")
+    clearInterval(it);
+    draw_graph();
   });
 
   $('#run').click(function(){
       if (checkXY()) {
+        $('#run').html('Computing');
+        $('#run').css('background-color', '#FF7105');
         runLR();
       }
   });
@@ -84,6 +89,9 @@ function runLR(){
 
           draw_graph(y0, yn);
       }
+  }).done(function(){
+    $('#run').html('Run 1 iteration');
+    $('#run').css('background-color', '#1A85FF');
   });
 }
 
