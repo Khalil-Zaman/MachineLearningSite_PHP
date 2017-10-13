@@ -15,7 +15,7 @@ y = form["Y"].value
 alpha = form["A"].value
 
 
-from LinearRegression import *
+from functions import *
 
 # INPUT DATA
 #X = np.array([0, 1, 2, 3, 4, 5])

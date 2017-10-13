@@ -47,15 +47,23 @@
     <div class="w3-row">
 
         <div class="w3-col l3 m12 w3-padding">
-          <a href="LinearRegression.php" style="text-decoration:none;"><div class="w3-card w3-red w3-btn" style="display:block">
+          <a href="GradientDescent.php" style="text-decoration:none;"><div class="w3-card w3-cyan w3-btn" style="display:block">
               <div class="w3-xlarge w3-padding-32 w3-center">
-                  Linear Regression
+                  Gradient Descent
               </div>
           </div></a>
         </div>
 
-        <div class="w3-col l9 m12 w3-padding">
-          <a href="#" style="text-decoration:none;"><div class="w3-card w3-cyan w3-btn" style="display:block">
+        <div class="w3-col l3 m12 w3-padding">
+          <a href="Normalization.php" style="text-decoration:none;"><div class="w3-card w3-green w3-btn" style="display:block">
+              <div class="w3-xlarge w3-padding-32 w3-center">
+                  Normalization
+              </div>
+          </div></a>
+        </div>
+
+        <div class="w3-col l6 m12 w3-padding">
+          <a href="#" style="text-decoration:none;"><div class="w3-card w3-red w3-btn" style="display:block">
               <div class="w3-xlarge w3-padding-32 w3-center">
                   As I learn more Machine Learning, I'll post more stuff ...
               </div>

@@ -1,4 +1,5 @@
 import numpy as np
+from numpy.linalg import inv
 
 def descent(X, y, w, alpha):
     # Compute f(x)
@@ -14,6 +15,7 @@ def descent(X, y, w, alpha):
 
 def error_function(y, f):
     E = 0.5 * np.sum(np.square((y - f)))
+    if E < (1/10**11): E = 0
     return E
 
 
@@ -47,6 +49,12 @@ def cycle(input_data, output_data, min_delta = 0, max_iteration = 0, alpha=0.05)
             print(w)
 
 
+def normalize(X, y):
+    XtX = np.dot(X.transpose(), X)
+    inverse = inv(XtX)
+    w = np.dot(inverse, X.transpose())
+    w = np.dot(w, y)
+    return w
 
 # INPUT DATA
 #X = np.array([0, 1, 2, 3, 4, 5, 6, 7, 8])

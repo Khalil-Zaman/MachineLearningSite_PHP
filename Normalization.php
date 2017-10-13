@@ -2,7 +2,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="js/drawgraph.js"></script>
+<script src="js/LinearRegression/normalization.js"></script>
 
 <div class="w3-container">
   <div class="w3-row" style="margin-top:-50px;">
@@ -40,15 +40,6 @@
 
         <div class="w3-row w3-padding">
           <div class="w3-col l4 m4 w3-padding">
-            <label class="w3-text">Learning Rate</label>
-          </div>
-          <div class="w3-col l8 m8">
-            <input type="text" name="alpha" value="0.005" class="w3-input" id="alpha" placeholder="Please type in your alpha value">
-          </div>
-        </div>
-
-        <div class="w3-row w3-padding">
-          <div class="w3-col l4 m4 w3-padding">
             <label class="w3-text">Current f(x)</label>
           </div>
           <div class="w3-col l8 m8 w3-padding">
@@ -59,7 +50,7 @@
 
         <div class="w3-row w3-padding">
           <div class="w3-col l4 m4 w3-padding">
-            <label class="w3-text">Current error function value</label>
+            <label class="w3-text">Error function value</label>
           </div>
           <div class="w3-col l8 m8 w3-padding">
             <div id="error" style="display:inline-block;">0</div>
@@ -67,23 +58,15 @@
         </div>
 
         <div class="w3-row w3-padding">
-          <div class="w3-col l4 m4 w3-padding">
-            <label class="w3-text">Iteration number</label>
+          <div class="w3-col l4 m4">
+            <div style="padding-right:5px;">
+              <div id="run" class="w3-btn" style="width:100%; background-color:#1A85FF">Run</div>
+            </div>
           </div>
-          <div class="w3-col l8 m8 w3-padding">
-            <div id="iteration-number" style="display:inline-block;">0</div>
-          </div>
-        </div>
-
-        <div class="w3-row w3-padding">
-          <div class="w3-col l2 m4">
-              <div id="run" class="w3-btn w3-purple">Run</div>
-          </div>
-          <div class="w3-col l3 m5">
-              <div id="run-constant" class="w3-btn w3-purple">Run Constant</div>
-          </div>
-          <div class="w3-col l3 m5">
-              <div id="reset" class="w3-btn w3-purple">Reset</div>
+          <div class="w3-col l4 m4">
+            <div style="padding-right:5px;">
+              <div id="reset" class="w3-btn" style="width:100%; background-color:#1A85FF">Reset</div>
+            </div>
           </div>
         </div>
 

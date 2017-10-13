@@ -1,29 +1,6 @@
 $(document).ready(function(){
   draw_graph();
 
-  var it;
-  $('#run-constant').click(function(){
-      if (checkXY()) {
-        if($(this).html() != "Stop"){
-          it = setInterval(function () {
-              runLR();
-          },1000);
-          $(this).html("Stop");
-          $(this).removeClass("w3-purple");
-          $(this).addClass("w3-red");
-          $('#X-values').attr('disabled', true);
-          $('#Y-values').attr('disabled', true);
-        } else {
-          clearInterval(it);
-          $(this).html("Run Constant");
-          $(this).removeClass("w3-red");
-          $(this).addClass("w3-purple");
-          $('#X-values').attr('disabled', false);
-          $('#Y-values').attr('disabled', false);
-        }
-      }
-  });
-
   $('#reset').click(function(){
     $('#error').html(0);
     $('#w0').html(0);
@@ -33,6 +10,8 @@ $(document).ready(function(){
 
   $('#run').click(function(){
       if (checkXY()) {
+        $('#run').html('Computing');
+        $('#run').css('background-color', '#FF7105');
         runLR();
       }
   });
@@ -49,6 +28,7 @@ function checkXY(){
     $('#error').html("Please make sure you have the same number of inputs as outputs")
     return false;
   }
+  $('#error').css('color', 'black');
   return true;
 }
 
@@ -56,12 +36,11 @@ function runLR(){
   y = getYValue();
   x = getXValue();
   w = getWValue();
-  a = getAValue();
   $.ajax({
       type: 'POST',
       //url: "pyfolder/php_link.php",
-      url: "pyfolder/test.py",
-      data: {"W": w, "X": x, "Y": y, "A": a}, //passing some input here
+      url: "pyfolder/LinearRegression/normalization.py",
+      data: {"W": w, "X": x, "Y": y}, //passing some input here
       dataType: "text",
       success: function(data){
           data = data.split(":");
@@ -79,11 +58,11 @@ function runLR(){
 
           $('#error').html(data[2]);
 
-          iteration_number = parseInt($('#iteration-number').html());
-          $('#iteration-number').html(iteration_number+ 1);
-
           draw_graph(y0, yn);
       }
+  }).done(function(){
+    $('#run').html('Done - Run Again');
+    $('#run').css('background-color', '#1A85FF');
   });
 }
 
@@ -135,15 +114,18 @@ function draw_graph(y0, yn){
       datasets: [{
         type: 'scatter',
         label: "Points",
-        pointBackgroundColor: "rgb(255, 12, 244)",
+        backgroundColor: "rgb(123,123,244)",
+        pointBackgroundColor: "rgb(123, 123, 244)",
         data: data_xy,
         fill: false,
         showLine: false,
       }, {
         type: 'line',
-        label: 'Linear Regression',
+        label: 'Normalization line',
+        backgroundColor: "rgb(123, 244, 123)",
+        borderColor: "rgb(123, 244, 123)",
         fill: false,
-        data: [ {x: 0, y: y0},
+        data: [ {x: X[0], y: y0},
                 {x: X[X.length-1], y: yn}],
       }]
     },
